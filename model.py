@@ -32,10 +32,8 @@ def writef(database_name):
 
     if os.path.exists(os.path.join(database_name,'.db')==False):
         with open(database_name+".db",'wb') as fi:
+                for item,value in CONFIG_PROPERTIES.items():
 
-                for item,value in count.items():
-
-                        #execute('INSERT INTO file VALUES(?,?)',(item,value))
                         return 0
 
 praser=argparse.ArgumentParser(prog="jsonparser",prefix_chars="--")
