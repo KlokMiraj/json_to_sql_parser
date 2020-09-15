@@ -5,7 +5,7 @@ import pandas
 class Singleton():
     def __init__(self,database_name,df):
         print(df.columns)
-        print(database_name)
+    
         database_name=database_name[0]
         if (os.path.exists(database_name[0]+".db")):
                 print("Database "+"'"+database_name[0]+"'"+" Already Exists")
@@ -36,4 +36,12 @@ def create_view(database_name,start_year,end_year,petroleum_product):
         return record1, record2, record3
 
 def select_report(database_name):
-    rep=create_view(database_name,'2005','2010','Petrol')
+    print("Please Enter The Start Year:")
+    start_year=input()
+    print("PLease Enter the end year:")
+    end_year=input()
+    print("Please Enter the Product Name [NAME_OPTIONS:'Petrol','Diesel','Kerosene'...... etc]:")
+    product=input()
+    rep=create_view(database_name,start_year,end_year,product)
+    print(" \t Year-Interval \t\t Min  \t Max \t \t Avg")
+    print(product,"\t"+start_year+"-"+end_year+"\t",rep[0],rep[1],rep[2])
