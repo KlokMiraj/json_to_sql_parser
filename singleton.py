@@ -2,20 +2,18 @@ import sqlite3
 import os
 import pandas
 
-
 class Singleton():
     def __init__(self,database_name,df):
         print(df.columns)
         print(database_name)
-
         database_name=database_name[0]
         if (os.path.exists(database_name[0]+".db")):
                 print("Database "+"'"+database_name[0]+"'"+" Already Exists")
                 print("Please choose another database name if you'd like to work on different database")
         df.to_sql(database_name,con,if_exists="replace")
         # ddprint(create_view())
-        for records in create_view(database_name):
-            (records)
+        print()
+
 
 database_name=""
 try:
@@ -23,16 +21,21 @@ try:
 except IOError as err:
     print(err)
 
-
-
 def cone():
     kursor=con.cursor()
     return kursor
 
-def create_view(database_name):
-        count=2005
-        query=cone().execute("SELECT * FROM "+database_name+"WHERE year="+sum(count,5)+";")
-        count=count+5
-        record=query.fetchall()
-        if record:
-            return record
+def create_view(database_name,start_year,end_year,petroleum_product):
+        query_max=cone().execute("SELECT MAX(sale) FROM "+database_name+" WHERE  year BETWEEN {} and {} AND petroleum_product=='{}'".format(start_year,end_year,petroleum_product))
+        record1=query_max.fetchall()
+        query_min=cone().execute("SELECT MIN(sale) FROM "+database_name+" WHERE  year BETWEEN {} and {} AND petroleum_product=='{}'".format(start_year,end_year,petroleum_product))
+        record2=query_min.fetchall()
+        query_avg=cone().execute("SELECT AVG(sale) FROM "+database_name+" WHERE  year BETWEEN {} and {} AND petroleum_product=='{}'".format(start_year,end_year,petroleum_product))
+        record3=query_avg.fetchall()
+
+        return record1, record2, record3
+
+def select_report():
+    print("Please enter the start-end year to set year interval:")
+    start=
+    petrol=create_view(database_name,'2005','2015','Petrol')
