@@ -12,7 +12,7 @@ class Singleton():
                 print("Please choose another database name if you'd like to work on different database")
         df.to_sql(database_name,con,if_exists="replace")
         # ddprint(create_view())
-        print()
+        select_report(database_name)
 
 
 database_name=""
@@ -35,7 +35,5 @@ def create_view(database_name,start_year,end_year,petroleum_product):
 
         return record1, record2, record3
 
-def select_report():
-    print("Please enter the start-end year to set year interval:")
-    start=
-    petrol=create_view(database_name,'2005','2015','Petrol')
+def select_report(database_name):
+    rep=create_view(database_name,'2005','2010','Petrol')
