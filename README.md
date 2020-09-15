@@ -1,7 +1,7 @@
 # Internship_challlange
-This is a parser which parses a any .json file into a sqlite3 database. Runs only on linux \n
+This is a parser which parses any .json file into a sqlite3 database. Runs only on linux
 
-Requirements: \n
+Requirements:
 <ul>
 <li>
 <a>Python 3</a></li>
@@ -9,13 +9,13 @@ Requirements: \n
 <a>Pandas</a></li>
 </ul>
 
-Usages: \n
-To run code kindly clone the github repo\n
-<ul>
+Usages:
+To run code kindly clone the github repo
+<ol>
 <li>
-1> cd <path_to_the_cloned_directory></li>
+1> cd {path_to_the_cloned_directory}</li>
 <li>
 2> python report.py --path [path_to_json_file]_ --dbname [database_name]  </li>
 <li>
 3>To generate year wise report follow the instruction as the program provides</li>
-</ul>
+</ol>
